@@ -7,7 +7,7 @@ namespace InsightArchitectures.Extensions.Http
     /// <summary>
     /// An abstract class that can be used to collect changes to configurations of <see cref="IServiceCollection" /> and <see cref="IHttpClientBuilder" />.
     /// </summary>
-    public abstract class ClientConfigurator
+    public abstract class HttpClientConfigurator
     {
         /// <summary>
         /// A collection of actions to be applied on an instance of <see cref="IHttpClientBuilder" />.

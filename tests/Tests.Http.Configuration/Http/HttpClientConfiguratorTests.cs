@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using AutoFixture.Idioms;
-using AutoFixture.NUnit3;
 using InsightArchitectures.Extensions.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
@@ -10,7 +9,8 @@ using NUnit.Framework;
 namespace Tests.Http
 {
     [TestFixture]
-    public class ClientConfiguratorTests
+    [TestOf(typeof(HttpClientConfigurator))]
+    public class HttpClientConfiguratorTests
     {
         [Test, CustomAutoData]
         public void Nulls_are_not_allowed(GuardClauseAssertion assertion) => assertion.Verify(typeof(TestClientConfigurator));
@@ -52,7 +52,7 @@ namespace Tests.Http
         }
     }
 
-    public class TestClientConfigurator : ClientConfigurator
+    public class TestClientConfigurator : HttpClientConfigurator
     {
         public IEnumerable<Action<IServiceCollection>> ServiceCollectionActions => ServiceCollectionConfigurations;
 
